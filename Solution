@@ -1,0 +1,87 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+
+        String limits = inp.nextLine();
+
+       String[] limits1 = limits.split(" ");
+       int xlimit = Integer.parseInt(limits1[0]);
+       int ylimit = Integer.parseInt(limits1[1]);
+
+       int xcurrent =0;
+       int ycurrent =0;
+
+        ArrayList<Integer> xvals = new ArrayList<Integer>();
+        ArrayList<Integer> yvals = new ArrayList<Integer>();
+
+        String[] first = inp.nextLine().split(" ");
+        int xadd = Integer.parseInt(first[0]);
+        int yadd = Integer.parseInt(first[1]);
+
+        xcurrent+= xadd;
+        ycurrent+= yadd;
+
+        if (xcurrent > xlimit){
+            xcurrent=xlimit;
+        }
+        if (xcurrent< 0){
+            xcurrent=0;
+        }
+
+        if (ycurrent>ylimit){
+            ycurrent=ylimit;
+        }
+
+        if(ycurrent<0){
+            ycurrent=0;
+        }
+
+        xvals.add(xcurrent);
+        yvals.add(ycurrent);
+
+
+        while (xadd!=0 || yadd!=0){
+            String[] coords = inp.nextLine().split(" ");
+
+           xadd = Integer.parseInt(coords[0]);
+           yadd = Integer.parseInt(coords[1]);
+
+           xcurrent+= xadd;
+           ycurrent+= yadd;
+
+           if (xcurrent > xlimit){
+               xcurrent=xlimit;
+           }
+           if (xcurrent< 0){
+               xcurrent=0;
+           }
+
+           if (ycurrent>ylimit){
+               ycurrent=ylimit;
+           }
+
+           if(ycurrent<0){
+               ycurrent=0;
+           }
+
+
+           xvals.add(xcurrent);
+           yvals.add(ycurrent);
+
+       }
+
+
+        for (int i=0; i< xvals.size()-1;i++){
+            System.out.println(xvals.get(i) + " "+ yvals.get(i));
+        }
+
+
+
+
+
+    }
+
+}
